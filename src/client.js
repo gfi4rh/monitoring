@@ -23,7 +23,7 @@ const client = mozaik => {
         const body = JSON.parse(x.body)
         return {
           name : body.tags.environment,
-          version : body.build.version
+          version : params.project === "Portail-Agent" ? body.project.version : body.build.version
         }}))
       .catch(err => console.error(err))
     },
