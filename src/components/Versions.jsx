@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes, version } from 'react'
 import Mozaik                          from 'mozaik/browser';
 import { ListenerMixin }               from 'reflux';
 import reactMixin                      from 'react-mixin';
@@ -30,13 +30,33 @@ class Versions extends Component {
     }
 
     onApiData(versions) {
-        console.log(versions)
         this.setState({
-            versions : null
+            versions : versions
         });
     }
 
     render() {
+
+        var { pillar, environment } = this.props;
+        const { versions } = this.state;
+
+        pillar.unshift("")
+
+        let node = null;
+
+        if(versions) {
+
+            node = (
+                <table>
+                    <tr>{pillar.map(x => <th>{x}</th>)}</tr>
+                    {environment.map(x => 
+                    <tr>
+                        {x.map((e,i) => i === 0 ? <th>{e}</th> : <td>{version.filter(f => f.name === e)[0].version}</td>)}
+                    </tr>)}
+                </table>
+            );
+        }
+
 
         return (
             <div>
@@ -47,7 +67,7 @@ class Versions extends Component {
                 </div>
                 <div className="widget__body">
                     <div>
-                        ICI TABLEAU
+                        {node}
                     </div>
                 </div>
             </div>
