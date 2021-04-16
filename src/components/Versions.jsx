@@ -8,30 +8,31 @@ import moment                          from 'moment'
 import timezone                        from 'moment-timezone'*/
 
 
-class Sprint extends Component {
+class Versions extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sprint : null
+            versions : null
         }
         
     }
 
     getApiRequest() {
-        let { board } = this.props;
+        let { url, project } = this.props;
 
         return {
-            id:     `api.sprint.${ board }`,
+            id:     `monitoring.versions.${project}`,
             params: {
-                board: board
+                project : project,
+                url : url
             }
         };
     }
 
-    onApiData(sprint) {
-        console.log(sprint)
+    onApiData(versions) {
+        console.log(versions)
         this.setState({
-            sprint: sprint
+            versions : null
         });
     }
 
@@ -43,13 +44,10 @@ class Sprint extends Component {
                     <span>
                         <span className="widget__header__subject">{this.props.title}</span>
                     </span>
-                    <span className="widget__header__count">
-                        {this.state.sprint === null ? '' : this.state.sprint.values[0].name.split('-')[2]}
-                    </span>
-                    <i className="fa fa-bug" />
                 </div>
                 <div className="widget__body">
                     <div>
+                        ICI TABLEAU
                     </div>
                 </div>
             </div>
@@ -57,13 +55,13 @@ class Sprint extends Component {
     }
 }
 
-Sprint.displayName = 'Sprint';
+Versions.displayName = 'Versions';
 
-Sprint.propTypes = {
+Versions.propTypes = {
     board:  PropTypes.number.isRequired
 };
 
-reactMixin(Sprint.prototype, ListenerMixin);
-reactMixin(Sprint.prototype, Mozaik.Mixin.ApiConsumer);
+reactMixin(Versions.prototype, ListenerMixin);
+reactMixin(Versions.prototype, Mozaik.Mixin.ApiConsumer);
 
-export default Sprint;
+export default Versions;

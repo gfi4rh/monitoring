@@ -1,6 +1,6 @@
-import Sprint from './Sprint.jsx';
+import Versions from './Versions.jsx';
 
 
 export default {
-    Sprint
+    Versions
 };
