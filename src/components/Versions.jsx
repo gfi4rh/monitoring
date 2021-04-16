@@ -49,7 +49,7 @@ class Versions extends Component {
                     <tr>{pillar.map(x => <th>{x}</th>)}</tr>
                     {environment.map(x => 
                     <tr>
-                        {x.map((e,i) => i === 0 ? <th>{e}</th> : <td className="version__cell">{versions.find(f => f.name === e) ? versions.find(f => f.name === e).version : "NaN"}</td>)}
+                        {x.map((e,i) => i === 0 ? <th>{e}</th> : <td className="version__cell">{versions.find(f => f.name === e) ? versions.find(f => f.name === e).version : "Non disponible"}</td>)}
                     </tr>)}
                 </table>
             );
