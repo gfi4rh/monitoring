@@ -64,7 +64,7 @@
   ],
   "license": "MIT",
   "main": "./src/components/index.js",
-  "name": "mozaik-ext-api-monitoring",
+  "name": "mozaik-ext-monitoring",
   "nyc": {
     "extension": [
       ".jsx"
