@@ -19,10 +19,9 @@ const client = mozaik => {
       })
       .then(res => res.json())
       .then(json => json.map(x => {
-        const body = JSON.parse(x.body)
         return {
-          name : body.tags.environment,
-          version : body.build.version
+          name : JSON.parse(x.body).tags.environment,
+          version : JSON.parse(x.body).build.version
         }
         }))
     },
