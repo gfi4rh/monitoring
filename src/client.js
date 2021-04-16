@@ -18,12 +18,14 @@ const client = mozaik => {
         }
       })
       .then(res => res.json())
-      .then(json => json.map(x => {
+      .then(json => json.filter(x => x.body))
+      .then(data => data.map(x => {
+        const body = JSON.parse(x.body)
         return {
-          name : JSON.parse(x.body).tags.environment,
-          version : JSON.parse(x.body).build.version
-        }
-        }))
+          name : body.tags.environment,
+          version : body.build.version
+        }}))
+      .catch(err => console.error(err))
     },
     
   }

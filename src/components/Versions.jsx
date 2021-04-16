@@ -47,11 +47,11 @@ class Versions extends Component {
         if(versions) {
 
             node = (
-                <table>
+                <table className="version__table">
                     <tr>{pillar.map(x => <th>{x}</th>)}</tr>
                     {environment.map(x => 
                     <tr>
-                        {x.map((e,i) => i === 0 ? <th>{e}</th> : <td>{versions.filter(f => f.name === e)[0].version}</td>)}
+                        {x.map((e,i) => i === 0 ? <th>{e}</th> : <td className="version__cell">{versions.find(f => f.name === e) ? versions.find(f => f.name === e).version : "NaN"}</td>)}
                     </tr>)}
                 </table>
             );
