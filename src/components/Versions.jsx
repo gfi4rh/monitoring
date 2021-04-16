@@ -51,7 +51,7 @@ class Versions extends Component {
                     <tr>{pillar.map(x => <th>{x}</th>)}</tr>
                     {environment.map(x => 
                     <tr>
-                        {x.map((e,i) => i === 0 ? <th>{e}</th> : <td>{version.filter(f => f.name === e)[0].version}</td>)}
+                        {x.map((e,i) => i === 0 ? <th>{e}</th> : <td>{versions.filter(f => f.name === e)[0].version}</td>)}
                     </tr>)}
                 </table>
             );

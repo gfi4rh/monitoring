@@ -16,7 +16,15 @@ const client = mozaik => {
           'Authorization' : 'Basic ' + encode(`${process.env.MONITORING_USERNAME}:${process.env.MONITORING_PASSWORD}`),
           'Accept' : "application/json"
         }
-      }).then(res => res.json())
+      })
+      .then(res => res.json())
+      .then(json => json.map(x => {
+        const body = JSON.parse(x.body)
+        return {
+          name : body.tags.environment,
+          version : body.build.version
+        }
+        }))
     },
     
   }
