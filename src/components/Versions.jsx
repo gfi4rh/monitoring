@@ -40,8 +40,6 @@ class Versions extends Component {
         var { pillar, environment } = this.props;
         const { versions } = this.state;
 
-        pillar.unshift("")
-
         let node = null;
 
         if(versions) {
@@ -66,7 +64,7 @@ class Versions extends Component {
                     </span>
                 </div>
                 <div className="widget__body">
-                    <div>
+                    <div className="version__container">
                         {node}
                     </div>
                 </div>
