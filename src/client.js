@@ -7,7 +7,7 @@ const client = mozaik => {
 
     versions(params){
 
-      return fetch(`${params.url}/monitoring4rh/applications/${project}/actuator/info`,{
+      return fetch(`${params.url}/monitoring4rh/applications/${params.project}/actuator/info`,{
         method : 'GET',
         headers : {
           Accept : "application/json"
