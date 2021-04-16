@@ -1,4 +1,4 @@
-import React, { Component, PropTypes, version } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Mozaik                          from 'mozaik/browser';
 import { ListenerMixin }               from 'reflux';
 import reactMixin                      from 'react-mixin';

@@ -27,6 +27,15 @@ const client = mozaik => {
         }}))
       .catch(err => console.error(err))
     },
+
+    operational(params){
+
+      mozaik.logger.info(chalk.yellow(`[monitoring] calling monitoring.operational`));
+
+      return fetch(params.url)
+        .then(res => res.status)
+
+    }
     
   }
 }
