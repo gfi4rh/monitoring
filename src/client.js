@@ -34,7 +34,6 @@ const client = mozaik => {
 
       return fetch(params.url)
         .then(res => res.status)
-
     }
     
   }
