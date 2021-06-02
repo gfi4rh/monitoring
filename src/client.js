@@ -20,7 +20,7 @@ const client = mozaik => {
       .then(res => res.json())
       .then(json => {return {
         status : json.statusInfo.status,
-        number : json.buildVersion,
+        number : json.info.project.version,
         url : json.registration.serviceUrl}
       })
     },
