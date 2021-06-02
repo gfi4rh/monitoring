@@ -47,7 +47,7 @@ class Versions extends Component {
                     <tr>
                         {x.map((e,i) => i === 0 ? 
                             <th>{e}</th> : 
-                            <Version url={url} instance={versions.find(f => f.name === e) && versions.find(f => f.name === e).instanceId}/>
+                            <Version url={url} instance={versions.find(f => f.name === e) && versions.find(f => f.name === e).instance}/>
                         )}
                     </tr>)}
                 </table>

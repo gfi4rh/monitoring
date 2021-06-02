@@ -39,6 +39,8 @@ render() {
   if(version){
     node = version.number
     className += version.status === 'UP' ? " version__up" : " version__down"
+  } else {
+    className += " version__down"
   }
 
   return (<td className={className}>
