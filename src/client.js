@@ -6,6 +6,25 @@ const client = mozaik => {
 
   return {
 
+    version(params){
+
+      mozaik.logger.info(chalk.yellow(`[monitoring] calling monitoring.version`));
+
+      return fetch(`${params.url}/monitoring4rh/instances/${params.instance}`,{
+        method : 'GET',
+        headers : {
+          'Authorization' : 'Basic ' + encode(`${process.env.MONITORING_USERNAME}:${process.env.MONITORING_PASSWORD}`),
+          'Accept' : "application/json"
+        }
+      })
+      .then(res => res.json())
+      .then(json => {return {
+        status : statusInfo.status,
+        number : json.buildVersion,
+        url : json.registration.serviceUrl}
+      })
+    },
+
     versions(params){
 
       mozaik.logger.info(chalk.yellow(`[monitoring] calling monitoring.versions`));
@@ -23,7 +42,7 @@ const client = mozaik => {
         const body = JSON.parse(x.body)
         return {
           name : body.tags.environment,
-          version : params.project === "Portail-Agent" ? body.project.version : body.build.version
+          instance : x.instanceId
         }}))
       .catch(err => console.error(err))
     },

@@ -2,10 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import Mozaik                          from 'mozaik/browser';
 import { ListenerMixin }               from 'reflux';
 import reactMixin                      from 'react-mixin';
-/*import classNames                      from 'classnames'
-import d3                              from 'd3/d3'
-import moment                          from 'moment'
-import timezone                        from 'moment-timezone'*/
+import Version                         from './Version.jsx'
 
 
 class Versions extends Component {
@@ -37,19 +34,21 @@ class Versions extends Component {
 
     render() {
 
-        var { pillar, environment } = this.props;
+        var { pillar, environment, url } = this.props;
         const { versions } = this.state;
 
         let node = null;
 
         if(versions) {
-
             node = (
                 <table className="version__table">
                     <tr>{pillar.map(x => <th>{x}</th>)}</tr>
                     {environment.map(x => 
                     <tr>
-                        {x.map((e,i) => i === 0 ? <th>{e}</th> : <td className="version__cell">{versions.find(f => f.name === e) ? versions.find(f => f.name === e).version : "Non disponible"}</td>)}
+                        {x.map((e,i) => i === 0 ? 
+                            <th>{e}</th> : 
+                            <Version url={url} instance={versions.find(f => f.name === e) && versions.find(f => f.name === e).instanceId}/>
+                        )}
                     </tr>)}
                 </table>
             );
@@ -74,10 +73,6 @@ class Versions extends Component {
 }
 
 Versions.displayName = 'Versions';
-
-Versions.propTypes = {
-    board:  PropTypes.number.isRequired
-};
 
 reactMixin(Versions.prototype, ListenerMixin);
 reactMixin(Versions.prototype, Mozaik.Mixin.ApiConsumer);
