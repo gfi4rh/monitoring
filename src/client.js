@@ -27,7 +27,7 @@ const client = mozaik => {
         } else {
           number = json.info.build.version
         }
-        
+
         return {
         status : json.statusInfo.status,
         number : number,
@@ -61,9 +61,17 @@ const client = mozaik => {
 
       mozaik.logger.info(chalk.yellow(`[monitoring] calling monitoring.operational`));
 
-      return fetch(params.url)
-        .then(res => res.status)
-    }
+      return fetch(params.url, {
+        method: 'GET'
+      })
+      .then(res => {
+        if((res.status === 200) || (res.status === 401)){
+          return {status : "up"}
+        } else {
+          return {status : "down"}
+        }
+      })
+    },
     
   }
 }

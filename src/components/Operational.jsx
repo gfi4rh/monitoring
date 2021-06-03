@@ -25,24 +25,28 @@ class Operational extends Component {
         };
     }
 
-    onApiData(status) {
-        console.log(status)
+    onApiData(data) {
         this.setState({
-            status : status
+            status : data.status
         });
     }
 
     render() {
 
-      const { name } = this.props;
-      const { status } = this.state;
+        const { name } = this.props;
+        const { status } = this.state;
 
 
-        return (
-            <div>
-                {name} + {status} 
-            </div>
-        );
+        let className = "operational__dot"
+
+        if(status) {
+            className += ` operational__${status}`
+        }
+
+        return <div className="operational__cell operational__center">
+            <div className="operational__name operational__center">{name}</div>
+            <div className={className}></div>
+        </div>
     }
 }
 

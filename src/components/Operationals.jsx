@@ -12,7 +12,7 @@ class Operationals extends Component {
 
     render() {
 
-        const { environment } = this.props;
+        const { environments } = this.props;
         
         return (
             <div>
@@ -23,7 +23,7 @@ class Operationals extends Component {
                 </div>
                 <div className="widget__body">
                     <div className="operational__container">
-                        {environment.map(x => <Operational name={x.name} url={x.url}/>)}
+                        {environments.map(x => <Operational name={x.name} url={x.url}/>)}
                     </div>
                 </div>
             </div>
