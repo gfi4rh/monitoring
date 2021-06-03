@@ -19,7 +19,6 @@ class Operational extends Component {
         return {
             id:     `monitoring.operational.${name}`,
             params: {
-                name : name,
                 url : url
             }
         };
@@ -33,7 +32,7 @@ class Operational extends Component {
 
     render() {
 
-        const { name } = this.props;
+        const { name, url } = this.props;
         const { status } = this.state;
 
 
@@ -43,7 +42,7 @@ class Operational extends Component {
             className += ` operational__${status}`
         }
 
-        return <div className="operational__cell operational__center">
+        return <div className="operational__cell operational__center" onClick={e => window.open(url)}>
             <div className="operational__name operational__center">{name}</div>
             <div className={className}></div>
         </div>
