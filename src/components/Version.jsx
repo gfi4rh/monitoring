@@ -43,7 +43,7 @@ render() {
     className += " version__down"
   }
 
-  return (<td className={className}>
+  return (<td className={className} onClick={e => window.open(version.url)}>
     {node}
   </td>)
 }

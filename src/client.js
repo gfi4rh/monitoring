@@ -20,7 +20,13 @@ const client = mozaik => {
       .then(res => res.json())
       .then(json => {
 
-        let number = json.info.project.version ? json.info.project.version : json.buildVersion
+        let number = null;
+
+        if('project' in json.info){
+          number = json.info.project.version
+        } else {
+          number = json.info.build.version
+        }
         
         return {
         status : json.statusInfo.status,
