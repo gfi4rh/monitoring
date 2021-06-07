@@ -11,7 +11,7 @@ key           | required | description
 `title`       | yes      | *Title of the widget*
 `url`         | yes      | *URL de l'hôte Monitoring*
 `project`     | yes      | *Nom du projet (dans Monitoring)*
-`pillar`      | yes      | *Nom des pillers sous forme de liste*
+`pillar`      | yes      | *Nom des pillers sous forme de liste, commencant par une chaîne vide*
 `environment` | yes      | *Matrice contenant les noms de tous les envirronnements*
 
 ### usage
@@ -22,7 +22,7 @@ key           | required | description
   title : "Environnement",
   url : "http://domain.com/monitoring",
   project : "MYPROJECT",
-  pillar : ["DEV", "PREPROD", "PROD"],
+  pillar : ["", "DEV", "PREPROD", "PROD"],
   environment : [
       ["FAB", "devfab", "pprfab", "prdfab"],
       ["QUA", "devqua", "pprqua", "prdqua"],
