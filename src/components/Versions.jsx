@@ -48,8 +48,8 @@ class Versions extends Component {
 
         if(versions) {
             node = (
-                <table className="version__table">
-                    <tr>{pillar.map(x => <th>{x}</th>)}</tr>
+                <table className="version__table"> {/* traduction des pilliers en tables*/}
+                    <tr>{pillar.map(x => <th>{x}</th>)}</tr> 
                     {environment.map(x => 
                     <tr>
                         {x.map((e,i) => i === 0 ? 
