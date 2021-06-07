@@ -42,6 +42,7 @@ class Versions extends Component {
     render() {
 
         var { pillar, environment, url } = this.props;
+        pillar.unshift("")
         const { versions, error } = this.state;
 
         let node = null;

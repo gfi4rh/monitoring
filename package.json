@@ -1,7 +1,7 @@
 {
   "author": {
-    "name": "Colin Regourd",
-    "url": "https://github.com/colin27091"
+    "name": "gfi4rh",
+    "url": "https://github.com/gfi4rh"
   },
   "ava": {
     "files": [
@@ -36,7 +36,7 @@
     "reflux": "^0.4.1"
   },
   "deprecated": true,
-  "description": "Mozaik pattern widgets",
+  "description": "Mozaik monitoring widgets",
   "devDependencies": {
     "ava": "0.13.0",
     "babel-eslint": "^5.0.0",
@@ -54,10 +54,7 @@
   },
   "homepage": "https://github.com/gfi4rh/mozaik-ext-monitoring",
   "keywords": [
-    "time",
-    "mozaik",
-    "clock",
-    "timezone",
+    "monitoring",
     "widget",
     "extension",
     "dashboard"
@@ -76,7 +73,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/plouc/mozaik-ext-monitoring.git"
+    "url": "git://github.com/gfi4rh/mozaik-ext-monitoring.git"
   },
   "scripts": {
     "cover-report": "nyc report --reporter=lcov && open coverage/lcov-report/index.html",
