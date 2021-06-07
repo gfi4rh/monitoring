@@ -30,7 +30,7 @@ class Versions extends Component {
     onApiData(versions) {
         if('message' in versions){
             this.setState({
-                error : "L'addresse de l'hôte monitoring est invalide"
+                error : "L'adresse de l'hôte monitoring est inaccessible"
             })
         } else {
             this.setState({
@@ -61,7 +61,7 @@ class Versions extends Component {
             );
         } else {
             if(error){
-                node = (<div>{error}</div>)
+                node = (<div className="version__error">{error}</div>)
             }
         }
 
