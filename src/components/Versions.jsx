@@ -9,7 +9,8 @@ class Versions extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            versions : null
+            versions : null,
+            error : null
         }
         
     }
@@ -27,15 +28,21 @@ class Versions extends Component {
     }
 
     onApiData(versions) {
-        this.setState({
-            versions : versions
-        });
+        if('message' in versions){
+            this.setState({
+                error : "L'addresse de l'hôte monitoring est invalide"
+            })
+        } else {
+            this.setState({
+                versions : versions
+            });
+        }
     }
 
     render() {
 
         var { pillar, environment, url } = this.props;
-        const { versions } = this.state;
+        const { versions, error } = this.state;
 
         let node = null;
 
@@ -52,6 +59,10 @@ class Versions extends Component {
                     </tr>)}
                 </table>
             );
+        } else {
+            if(error){
+                node = (<div>{error}</div>)
+            }
         }
 
 

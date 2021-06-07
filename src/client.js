@@ -54,7 +54,7 @@ const client = mozaik => {
           name : body.tags.environment,
           instance : x.instanceId
         }}))
-      .catch(err => console.error(err))
+      .catch(err => err)
     },
 
     operational(params){
