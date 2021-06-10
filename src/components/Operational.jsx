@@ -8,7 +8,7 @@ class Operational extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            status : null
+            status : "down"
         }
         
     }
