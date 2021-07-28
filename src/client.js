@@ -10,7 +10,7 @@ const client = mozaik => {
 
       mozaik.logger.info(chalk.yellow(`[monitoring] calling monitoring.version`));
 
-      return fetch(`${params.url}/monitoring4rh/instances/${params.instance}`,{
+      return fetch(`${params.url}/instances/${params.instance}`,{
         method : 'GET',
         headers : {
           'Authorization' : 'Basic ' + encode(`${process.env.MONITORING_USERNAME}:${process.env.MONITORING_PASSWORD}`),
@@ -39,7 +39,7 @@ const client = mozaik => {
 
       mozaik.logger.info(chalk.yellow(`[monitoring] calling monitoring.versions`));
 
-      return fetch(`${params.url}/monitoring4rh/applications/${params.project}/actuator/info`,{
+      return fetch(`${params.url}/applications/${params.project}/actuator/info`,{
         method : 'GET',
         headers : {
           'Authorization' : 'Basic ' + encode(`${process.env.MONITORING_USERNAME}:${process.env.MONITORING_PASSWORD}`),
