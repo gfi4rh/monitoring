@@ -35,28 +35,6 @@ const client = mozaik => {
       })
     },
 
-    versions(params){
-
-      mozaik.logger.info(chalk.yellow(`[monitoring] calling monitoring.versions`));
-
-      return fetch(`${params.url}/applications/${params.project}/actuator/info`,{
-        method : 'GET',
-        headers : {
-          'Authorization' : 'Basic ' + encode(`${process.env.MONITORING_USERNAME}:${process.env.MONITORING_PASSWORD}`),
-          'Accept' : "application/json"
-        }
-      })
-      .then(res => res.json())
-      .then(json => json.filter(x => x.body))
-      .then(data => data.map(x => {
-        const body = JSON.parse(x.body)
-        return {
-          name : body.tags.environment,
-          instance : x.instanceId
-        }}))
-      .catch(err => err)
-    },
-
     operational(params){
 
       mozaik.logger.info(chalk.yellow(`[monitoring] calling monitoring.operational`));
